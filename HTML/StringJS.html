@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>String</title>
+    <script>
+       
+       var str="praghya";
+
+      document.writeln("str="+str+"<br>");
+      document.writeln("str="+str.length+"<br>");
+      document.writeln("str="+str.substring(-6,-2)+"<br>");
+      document.writeln("str="+str.substr(-2,-6)+"<br>");
+      document.writeln("str="+str.substring(1,3)+"<br>");
+
+      document.writeln("str="+str.substr(1,2)+"<br>");
+      document.writeln("str="+str.substr(-2,2)+"<br>");
+      document.writeln("str="+str.substr(0,-1)+"<br>");
+      document.writeln("str="+str.substr(-2,-6)+"<br>");
+
+      var x = str.slice(-6,-2);
+      document.writeln("str="+x+"<br>");
+
+
+      var z=str.split("a");  //a is missing in output.
+      document.writeln("str="+z+"<br>");
+      console.log(str);
+
+
+
+    
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

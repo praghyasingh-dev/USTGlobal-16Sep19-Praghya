@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FORM validation</title>
+    <script>
+        function validate()
+        {
+         var username= document.loginform.username.value;
+         if(username.length>=8)
+         {
+             alert("submited");
+         }
+         else{
+             alert("length must be min 8 charcter");
+         }
+         
+        }
+    </script>
+</head>
+<body bgcolor="yellow">
+       <form action=" "  onsubmit="validate()" name="loginform">
+            <fieldset>
+              <legend><h1>USER INFORMATION</h1></legend>
+             <label>user name-</label> <input type="text" name="username" placeholder="enter first name" required><br>
+               
+                    PASSWORD- <input type="password"  name="password"required><br>
+                    
+                     
+                      <input type="submit" value="login">
+              </form>
+           </fieldset>
+</body>
+</html>

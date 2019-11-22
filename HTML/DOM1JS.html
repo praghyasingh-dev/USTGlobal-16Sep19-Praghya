@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chnage content</title>
+    <script>
+        function changethefirstname()
+        {
+            //select
+           var h1tag= document.getElementById("first");
+           //manipulate
+          console.log(h1tag.innerHTML);
+          h1tag.innerHTML="welcome praghya singh"
+        }
+
+
+        function func2()
+        {
+            //select
+           var h1tag= document.getElementsByClassName("class1");
+           //manipulate
+          console.log(h1tag);
+          h1tag[0].style.color="red";
+          h1tag[1].style.color="green";
+          
+        }
+
+        function func3()
+        {
+            //select
+           var allh1tag= document.getElementsByTagName("h2");
+           //manipulate
+          allh1tag[0].style.textTransform="uppercase";
+          allh1tag[1].style.padding="10px 10px 10px 10px";
+          allh1tag[2].style.backgroundColor="yellow";
+        }
+
+        function func4()
+        {
+            var classes=document.querySelectorAll("h3");
+            console.log(classes);
+        }
+        function changeImg(img)
+        {console.log(img);
+        img.src="C:/Users/hp/Desktop/software/manku.jpg";
+        img.classList.add("imgClass")
+        }
+
+
+    </script>
+     <style>
+            .imgClass
+            {
+                height:500px;
+            }
+     </style>
+</head>
+<body>
+        <h1 id="first">welcome user</h1>
+        <h1 >welcome praghya</h1>
+        <h1 >welcome singh</h1>
+       
+<button onclick="changethefirstname()">change the first h1</button>
+
+
+<h1 >welcome india</h1>
+        <h1 class="class1" >welcome lucknow</h1>
+        <h1 class="class1">welcome bangalore </h1>
+       
+<button onclick="func2()">demo for get element by class</button>
+
+
+<h2 >fruits</h2>
+      <h2  >apple</h2>
+      <h2 >grapes </h2>
+       
+<button onclick="func3()">demo for get element by tag name</button>
+
+<h3 >festivals of india</h3>
+      <h3 class="classes"  >diwali</h3>
+      <h3 class="classes" >holi</h3>
+       
+<button onclick="func4()">demo for get element query selector</button>
+
+
+<img src="‪‪C:/Users/hp/Desktop/a.jpg"  onclick="changeImg(this)">
+       
+
+
+
+
+
+        
+</body>
+</html>

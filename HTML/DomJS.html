@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var student={
+        name:'praghya',
+        marks:70,
+        getName:Function("document.writeln(this.name)"),
+       getMarks:Function("return this.marks")
+    
+    }
+    document.writeln("name="+student.name+"<br>");
+    document.writeln("marks="+student.marks+"<br>");
+    student.getName();
+    document.writeln("marks="+student.getMarks()+"<br><br><br><br>v");
+
+
+
+    function carr(name,color,price)
+         {
+             this.name=name;
+             this.color=color;
+             this.price=price;
+             
+         }
+
+         var car1=new carr('i-10',7000000,'green');
+         var car2=new carr('bmw',6000000,'red');
+
+         for(var x in car1)
+         {
+            document.writeln(car1[x]+"<br><br>");
+         }
+
+
+         var arr=['jsp',15,true,null,78.9];
+         for(var x in arr){
+            document.writeln(x+"<br>");   
+         }
+
+         document.writeln("<br>for of"+"<br>")
+
+         for(var x of arr){
+            document.writeln(x+"<br>")
+         }
+
+        
+
+
+    </script>
+</body>
+</html>

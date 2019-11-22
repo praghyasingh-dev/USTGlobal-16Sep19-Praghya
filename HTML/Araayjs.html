@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ARRAY</title>
+    <script>
+       
+      var arr=[1,2,3,"jsp","hi",'hello',true,null,34.25];
+      
+      arr.push(40); //it add the values in last in array .
+      arr.push(78);
+      document.writeln(arr.push(100)); //push wants argument
+      document.writeln(arr+"<br>");
+
+      
+      
+       document.writeln(arr.pop()+"<br>");
+       document.writeln(arr+"<br>");
+
+       arr.unshift("first");
+       document.writeln(arr+"<br>");
+
+      document.writeln(arr[0]+"<br>");
+      document.writeln(arr[9]+"<br>");
+
+       arr.reverse(arr);
+       document.writeln(arr+"<br>");
+
+       arr.splice(2,,10,20,30);
+       document.writeln(arr+"<br>");
+
+
+
+
+
+
+        
+      for(var i=0;i<arr.length;i++)
+      {
+        document.writeln(arr[i]+"<br>");  
+      }
+      for(var x in arr)
+      {
+        document.writeln(arr[x]+"<br>");
+      }
+
+
+    
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

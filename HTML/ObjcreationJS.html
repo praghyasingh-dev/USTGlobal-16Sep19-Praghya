@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body bgcolor="pink">
+    <h1>
+    <script>
+        //using new keyword----------------------------
+    var car=new Object();
+      car.name='i-10';
+      car.color='red';
+      car.price=120000;
+
+      document.writeln("name="+car.name+"<br>");
+      document.writeln("color="+car.color+"<br>");
+      document.writeln("price="+car.price+"<br><br><br>");
+
+      document.writeln("name="+car["name"]+"<br>");
+      document.writeln("color="+car["color"]+"<br>");
+      document.writeln("price="+car["price"]+"<br><br><br><br>");
+
+
+      //using litrals-----------------------
+      var car={
+          brand:'BMW',
+          yearofmanufacture:2016,
+          color:'white'}
+
+          document.writeln("brand="+car["brand"]+"<br>");
+      document.writeln("yearofmanufacture="+car["yearofmanufacture"]+"<br>");
+      document.writeln("color="+car["color"]+"<br><br><br><br>");
+
+       //using construction function------------------------------
+         function carr(name,color,price)
+         {
+             this.name=name;
+             this.color=color;
+             this.price=price;
+             
+         }
+
+         var car1=new carr('i-10',7000000,'green');
+         var car2=new carr('bmw',6000000,'red');
+
+         document.writeln("name="+car1["name"]+"<br>");
+      document.writeln("color="+car1["color"]+"<br>");
+      document.writeln("price="+car1["price"]+"<br><br><br><br>");
+
+
+      document.writeln("name="+car2["name"]+"<br>");
+      document.writeln("color="+car2["color"]+"<br>");
+      document.writeln("price="+car2["price"]+"<br><br><br><br>");
+
+
+        
+    </script>
+    </h1>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FUNCTIONS</title>
+    <script>
+
+        function fun()
+        {document.write("function invoked");}
+
+        function confirmDemo()
+        {
+          var a= window.confirm("will you accept?");
+         if(a)
+         { document.write("uh agree");}
+         else{  document.write("uh are not agree.");}
+        }
+
+        function promptDemo()    //to take user input
+        {
+          var name=  prompt("enter user your name");
+          document.writeln(typeof(name));
+          document.writeln("uh are "+name);
+        }
+
+        function opengmail()
+        {
+            open("https://www.google.com")
+        }
+    </script>
+</head> 
+<body onload="alert('page load')">
+        <script>
+                var d=new Date();
+                document.writeln(d+"<br>");    
+        </script>
+
+<button onclick="fun()">click</button><br>
+<button onclick="confirmDemo()">CONFIRM BOX</button>   <br>
+<button onclick="promptDemo()">hello</button>  <br>
+<button onclick="opengmail()">open gmail</button>   
+</body>
+</html>
