@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "P:\\VS studio\\UST-HTML\\Bootstrap"
+		},
+		{
+			"path": "P:\\VS studio\\UST-HTML\\components"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "components"
+	}
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            body{
+             border : 2px solid black;
+             height : 300px;
+             width :500px;
+             text-align: center;
+             padding-top: 30px;
+             margin: 100px;
+             margin-left: 450px;
+            }
+            input[type=text]
+            {
+                border : 2px solid rgb(0, 217, 255);
+            }
+            input[type=password]
+            {
+                border : 2px solid rgb(0, 195, 255);
+            }
+            button{
+                  padding-right: 100px;
+            }
+           
+        </style>
+</head>
+<body>
+        <div>
+                <div>
+                  <label for="usernamel">Username</label>
+                  <input type="text" id="usernametb" onkeyup="checkLength()">
+                </div>
+                <div>&nbsp;</div>
+                <div>
+        <span><label for="passwordl">Password</label></span>
+        <span><input type="password" id="passwordtb" onkeyup="checkLength()"></span><br><br>
+        <span><button id=show onclick="showPswd()">view</button></span>
+                </div>
+                <div>&nbsp;</div>
+                <div>
+                    <button id="login" href="login.html">login</button>
+                </div>
+        
+        
+        
+        
+    <script src="Assignmentb8.js"></script>
+</body>
+</html>

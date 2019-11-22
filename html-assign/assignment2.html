@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   
+    <table border="2px">
+        <h2>a)</h2>
+        <caption>A test table with merged cells</caption>
+        <tr>
+            <th rowspan="2"></th>
+            <th colspan="2">Average</th>
+            <th rowspan="2">Red eyes</th>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>weight</td>
+        </tr>
+        <tr>
+            <th>Males</th>
+            <td>1.9</td>
+            <td>0.003</td>
+            <td>40%</td>
+        </tr>
+        <tr>
+                <th>Females</th>
+                <td>1.7</td>
+                <td>0.002</td>
+                <td>43%</td>
+            </tr>
+
+    </table>
+
+    <h2>b)</h2>
+
+    <table border="2px">
+        <tr>
+            <th colspan="6">Time table</th>
+        </tr>
+        <tr>
+            <th rowspan="7">Hours</th>
+        </tr>
+        <tr>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+            <td>Sports</td>
+        </tr>
+        <tr>
+            <th colspan="5">Lunch</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td rowspan="2">Project</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+        </tr>
+    </table>
+    <h2>C)</h2>
+    <table border="2px">
+        <tr>
+            <td colspan="2">Home Team</td>
+            <td colspan="2">Away Team</td>
+        </tr>
+        <tr>
+            <td>Arsenal</td>
+            <td>2</td>
+            <td>Leeds</td>
+            <td>1</td>
+        </tr>
+        <tr>
+                <td>Derby</td>
+                <td>1</td>
+                <td>Everton</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                    <td>Liverpool</td>
+                    <td>0</td>
+                    <td>Sunderland</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                        <td>Newcastle</td>
+                        <td>1</td>
+                        <td>Man Utd</td>
+                        <td>4</td>
+                    </tr>
+
+    </table>
+
+    <h1>2-</h1>
+    <h2>a)</h2>
+    <fieldset>
+            <legend></legend>
+            <form action="">
+                <label for="First Name" >First Name</label><br>
+                <input type="text" name="name" id="name" ><br>
+                <label for="Last Name" > Last Name</label><br>
+                <input type="text" name="email" id="email"><br>
+                <label for="CompanyName" >Company Nmae</label><br>
+                <input type="text" name="companyname" id="Companyname"><br>
+                <label for="empid" >Emp ID</label><br>
+                <input type="text" name="empid" id="empid"><br>
+                <label for="doj" > Date of Joining</label><br>
+                <input type="date" name="doj" id="doj"><br>
+                <label for="Name" > Gender</label><br>
+                Male<input type="radio" name="gender" id="male">
+                Female<input type="radio" name="gender" id="Female">
+                Other<input type="radio" name="gender" id="Other"><br>
+                <label for="Skills" >Skills</label><br>
+                <input type="checkbox" name ="java">Java<br>
+                <input type="checkbox" name ="sql">Sql<br>
+
+                <input type="checkbox" name ="J2EE">j2EE<br>
+                <input type="checkbox" name ="Hibernate">Hibernate<br>
+                <input type="submit" value="submit" name="submit">
+                <input type="reset" value="reset" name="reset"><br>
+
+                </form>
+            </fieldset>
+                <h2>b) &nbsp;&nbsp; Customer Details:</h2>
+                <form action="" method="POST">
+                        <label for="Full name" ><b>Full Name</b></label><br>
+                        <input type="text" name="firstname" id="firstname" placeholder="First Name" >
+                        <input type="text" name="lastname" id="lastname" placeholder="Last Name" ><br><br>
+                        <label for="Address" ><b>Address</b></label><br>
+                        <input type="text" name="street address" id="street address" placeholder="Street Address" ><br><br>
+                        <input type="text" name="street address line2" id="street address line2" placeholder="Street Address Line 2" ><br><br>
+                        <input type="text" name="city" id="city" placeholder="City" >&nbsp;
+                        <input type="text" name="state" id="state" placeholder="State / Province" >&nbsp;<br><br>
+                        <input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" >&nbsp;
+                        <label for="country"></label>
+                        <select name="country" id="country" aria-placeholder="Country">
+                            <option value="0"  selected disabled>Please Select</option>
+                            <option value="">India</option>
+                            <option value="">London</option>
+                            </select>
+                            </form>
+                            <h2> C)</h2>
+                            <form action="" method="">
+                                <table>
+                                    <tr>   <td> <label for="Full name" ><b>Full Name</b></label></td>
+                                            <td><input type="text" name="firstname" id="firstname" placeholder="First Name" ></td>
+                                            <td><input type="text" name="middlename" id="middlename" placeholder="Middle Name" ></td>
+                                            <td><input type="text" name="lastname" id="lastname" placeholder="Last Name" ></td><br></tr>
+                                   <tr>     <td rowspan="4"><label for="Address" ><b>Current Address</b></label></td> 
+                                            <td><input type="text" name="street address" id="street address" placeholder="Street Address" ></td> </tr><br>
+                                   <tr>     <td><input type="text" name="street address line2" id="street address line2" placeholder="Street Address Line 2" ><br></td></tr>
+                                   <tr>    <td> <input type="text" name="city" id="city" placeholder="City" ></td>
+                                           <td><input type="text" name="state" id="state" placeholder="State / Province" ><br></td></tr>
+                                   <tr>    <td><input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" >&nbsp;</td>
+                                           <td><label for="country"></label>
+                                           <select name="country" id="country" aria-placeholder="Country">
+                                           <option value="0"  selected disabled>Please Select</option>
+                                            <option value="">India</option>
+                                            <option value="">London</option>
+                                            </select></td></tr> <br>
+
+                                    <tr>    <td> <label for="Email Address" ><b>Email Address</b></label></td>
+                                            <td><input type="email" name="Email Address" id="Email Address"  ></td></tr><br>
+                                    <tr>    <td><label for="Phone Number" ><b>Phone Number</b></label></td>
+                                            <td><input type="tel" name="areacode" id="areacode" placeholder="Area Code" ></td>
+                                            <td><input type="tel" name="Phone" id="Phone" placeholder="Phone Number" ><br></td></tr>
+                                    <tr>    <td> <label for="Birthdate" ><b>Birth Date</b></label></td>
+                                            <td><select name="month" id="month">
+                                            <option value="0"  selected disabled>month</option>
+                                            <option value="">jan</option>
+                                            <option value="">feb</option>
+                                            <option value="">mar</option>
+                                            <option value="" >apr</option>
+                                            <option value="">may</option>
+                                            <option value="">jun</option>
+                                            <option value="">jul</option>
+                                            <option value="">aug</option>
+                                            <option value="" >sep</option>
+                                            <option value="">oct</option>
+                                            <option value="">nov</option>
+                                            <option value="">dec</option>
+                                
+                                        </select></td>
+                                            <td> <select name="day" id="day">
+                                                <option value="0"  selected disabled>Day</option>
+                                                <option value="1"></option><option value="2"></option><option value="3"></option><option value="4"></option>
+                                                <option value="5"></option><option value="6"></option><option value="7"></option><option value="8"></option>
+                                                <option value="9"></option><option value="10"></option><option value="11"></option><option value="12"></option>
+                                                <option value="13"></option><option value="14"></option><option value="15"></option><option value="16"></option>
+                                                <option value="17"></option><option value="18"></option> <option value="18"></option><option value="19"></option>
+                                                <option value="20"></option><option value="21"></option><option value="22"></option>
+                                                <option value="23"></option><option value="24"></option>
+                                                <option value="25"></option><option value="26"></option><option value="27"></option>
+                                                <option value="28"></option><option value="29"></option><option value="30"></option><option value="31"></option></td>
+                                            </select>
+                                            <td><select>
+                                                    <option value="0"  selected disabled>year</option>
+                                                    <option value="">2019</option>
+                                                    <option value="">2018</option>
+                                            </select></td></tr><br>
+                                            </table>
+                                            <input type="button" name="next" value="next">
+
+</body>
+</html>
