@@ -1,0 +1,21 @@
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  templateUrl: './child.component.html',
+  styleUrls: ['./child.component.css']
+})
+export class ChildComponent implements OnInit {
+  @Input() car: {imgUrl: string, name: string};
+  @Input() bike: {imgUrl: string, name: string};
+  @Input() movie: {imgUrl: string, name: string};
+  @Input() laptop: {imgUrl: string, name: string};
+  @Input() mobile: {imgUrl: string, name: string};
+
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
