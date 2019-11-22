@@ -1,0 +1,712 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.7.27-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databaese;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databaese' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| emp                |
+| employee           |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| ust_db             |
+| world              |
++--------------------+
+9 rows in set (0.38 sec)
+
+mysql> use ust_db
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_ust_db |
++------------------+
+| product_info     |
++------------------+
+1 row in set (0.02 sec)
+
+mysql> use employee;
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_employee |
++--------------------+
+| emp                |
++--------------------+
+1 row in set (0.13 sec)
+
+mysql> select * from emp where deptno=20 and salary>25000;
+Empty set (0.63 sec)
+
+mysql> desc emp;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| empid       | int(11)      | NO   | PRI | NULL    |       |
+| name        | varchar(100) | NO   |     | NULL    |       |
+| mobileno    | bigint(20)   | YES  | UNI | NULL    |       |
+| dob         | date         | YES  |     | NULL    |       |
+| age         | int(11)      | YES  |     | NULL    |       |
+| doj         | date         | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50)  | YES  |     | NULL    |       |
+| deptno      | int(11)      | YES  |     | NULL    |       |
+| salary      | int(11)      | YES  |     | NULL    |       |
+| email       | varchar(170) | YES  |     | NULL    |       |
+| gender      | varchar(100) | YES  |     | NULL    |       |
+| designation | varchar(100) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+12 rows in set (0.20 sec)
+
+mysql> select * from emp where deptno=20 and salary>25000;
+Empty set (0.01 sec)
+
+mysql> select * from emp;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o positive |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a positive |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b positive |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b negative |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b negative |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b negative |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o positove |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o positove |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b positove |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from emp where deptno = 20 and salary>20000;
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+|     4 | rajesh | 74300125 | 1994-10-05 |   29 | 2018-04-04 | b negative |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk       |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where deptno = 20 and salary>=20000;
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+|     4 | rajesh | 74300125 | 1994-10-05 |   29 | 2018-04-04 | b negative |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk       |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select name,salary  from emp where deptno = 20 and deptno=10;
+Empty set (0.02 sec)
+
+mysql> select name,salary  from emp where deptno = 20 or deptno=10;
++--------+--------+
+| name   | salary |
++--------+--------+
+| raj    |  20000 |
+| raju   |  50000 |
+| rajan  |  17000 |
+| rajesh |  22000 |
++--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select *  from emp where designation = tester and age=25;
+ERROR 1054 (42S22): Unknown column 'tester' in 'where clause'
+mysql> select *  from emp where designation = 'tester' and age=25;
++-------+-------+----------+------------+------+------------+------------+--------+--------+--------------------+--------+-------------+
+| empid | name  | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email              | gender | designation |
++-------+-------+----------+------------+------+------------+------------+--------+--------+--------------------+--------+-------------+
+|     9 | ritik |  7736342 | 1992-04-20 |   25 | 2018-08-22 | o positove |     40 |  28000 | ritik999@gmail.com | male   | tester      |
++-------+-------+----------+------------+------+------------+------------+--------+--------+--------------------+--------+-------------+
+1 row in set (0.09 sec)
+
+mysql> select *  from emp where designation = 'tester' or salary>40000;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a positive |     10 |  50000 | rajusingh97@gmail.com   | male   | hr          |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b positive |     10 |  17000 | rajansingh97@gmail.com  | male   | tester      |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b negative |     40 |  70000 | sitaverma66@gmail.com   | female | manager     |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b negative |     50 |  70000 | amritaangel66@gmail.com | female | manager     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o positove |     40 |  28000 | ritik999@gmail.com      | male   | tester      |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b positove |     30 |  32000 | sarika999@gmail.com     | female | tester      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select name,salary,age from emp where deptno=10 or deptno=40 or deptno=50;
++--------+--------+------+
+| name   | salary | age  |
++--------+--------+------+
+| raj    |  20000 |   23 |
+| raju   |  50000 |   22 |
+| rajan  |  17000 |   29 |
+| sita   |  70000 |   29 |
+| amrita |  70000 |   22 |
+| bhavya |  10000 |   40 |
+| ritik  |  28000 |   25 |
++--------+--------+------+
+7 rows in set (0.00 sec)
+
+mysql> select name,salary,age from emp where deptno=10 or deptno=40 or deptno=70;
++-------+--------+------+
+| name  | salary | age  |
++-------+--------+------+
+| raj   |  20000 |   23 |
+| raju  |  50000 |   22 |
+| rajan |  17000 |   29 |
+| sita  |  70000 |   29 |
+| ritik |  28000 |   25 |
++-------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql> select *from emp where age>25 and bloodgroup =b positive;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'positive' at line 1
+mysql> select *from emp where age>25 and bloodgroup =b positove;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'positove' at line 1
+mysql> select *from emp where age>25 and bloodgroup ='b positove';
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email               | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+-------------+
+|    10 | sarika |  9239239 | 1995-04-28 |   28 | 2017-12-22 | b positove |     30 |  32000 | sarika999@gmail.com | female | tester      |
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> update emp set bloodgroup ='b+'
+    -> where bloodgroup='b positove';
+Query OK, 1 row affected (0.45 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o positive |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a positive |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b positive |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b negative |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b negative |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b negative |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o positove |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o positove |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> update emp set bloodgroup ='0+'
+    -> where bloodgroup='o positove';
+Query OK, 2 rows affected (0.17 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from emp;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o positive |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a positive |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b positive |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b negative |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b negative |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b negative |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | 0+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | 0+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> update emp set bloodgroup ='o+'
+    -> where bloodgroup='o positove';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update emp set bloodgroup ='o+'
+    -> where bloodgroup='0+';
+Query OK, 2 rows affected (0.17 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update emp set bloodgroup ='o+'
+    -> where bloodgroup='o positive';
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set bloodgroup ='a+'
+    -> where bloodgroup='a positive';
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set bloodgroup ='b+'
+    -> where bloodgroup='b positive';
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b negative |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b negative |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b negative |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> update emp set bloodgroup ='b-'
+    -> where bloodgroup='b negative';
+Query OK, 3 rows affected (0.16 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from emp;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from emp where desination='tester';
+ERROR 1054 (42S22): Unknown column 'desination' in 'where clause'
+mysql> select * from emp where designation='tester';
++-------+--------+----------+------------+------+------------+------------+--------+--------+------------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                  | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+------------------------+--------+-------------+
+|     3 | rajan  | 74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com | male   | tester      |
+|     9 | ritik  |  7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com     | male   | tester      |
+|    10 | sarika |  9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com    | female | tester      |
++-------+--------+----------+------------+------+------------+------------+--------+--------+------------------------+--------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where  not designation ='tester';
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+6 rows in set (0.09 sec)
+
+mysql> select * from emp where  designation !='tester';
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+6 rows in set (0.00 sec)
+
+mysql> select name from emp where  designation ='tester' or designation='hr' or salary>40000;
++--------+
+| name   |
++--------+
+| raju   |
+| rajan  |
+| sita   |
+| amrita |
+| ritik  |
+| sarika |
++--------+
+6 rows in set (0.00 sec)
+
+mysql> select name from emp where  (designation ='tester' or designation='hr') and salary>40000;
++------+
+| name |
++------+
+| raju |
++------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where not (designation='sofware devloper' and deptno=40)  ;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from emp where designation='sofware devloper' and (deptno=10 or deptno=40);
++-------+------+-----------+------------+------+------------+------------+--------+--------+----------------------+--------+------------------+
+| empid | name | mobileno  | dob        | age  | doj        | bloodgroup | deptno | salary | email                | gender | designation      |
++-------+------+-----------+------------+------+------------+------------+--------+--------+----------------------+--------+------------------+
+|     1 | raj  | 983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com | female | sofware devloper |
++-------+------+-----------+------------+------+------------+------------+--------+--------+----------------------+--------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where deptno in (40,50,70,80);
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+--------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation  |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+--------------+
+|     6 | sita   | 94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager      |
+|     7 | amrita |  9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager      |
+|     8 | bhavya |  8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support |
+|     9 | ritik  |  7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester       |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+--------------+
+4 rows in set (0.11 sec)
+
+mysql> select * from emp where deptno in (40,40,50,70,80);
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+--------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation  |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+--------------+
+|     6 | sita   | 94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager      |
+|     7 | amrita |  9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager      |
+|     8 | bhavya |  8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support |
+|     9 | ritik  |  7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester       |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> select name from emp where designation in ('admin','hr','tester');
++--------+
+| name   |
++--------+
+| raju   |
+| rajan  |
+| ritik  |
+| sarika |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where designation in ('admin','sofware devloper','tester') and deptno in(20,30) and salary>40000;
+Empty set (0.00 sec)
+
+mysql> select* from emp;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql>---------------------------------------------------------
+
+mysql> select * from emp where designation in ('admin','sofware devloper','tester') and deptno in(20,30) and salary>40000;
+Empty set (0.00 sec)
+
+mysql> select* from emp;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> select* from emp where designation not in('admin','tester','hr');
++-------+--------+-----------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno  | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+-----------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    | 983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     4 | rajesh |  74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |  94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |   9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |   8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
++-------+--------+-----------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> select* from emp where  age in(20,25,40,30) and designation not in('tester','sofware devloper');
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+--------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email               | gender | designation  |
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+--------------+
+|     8 | bhavya |  8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com | female | tech support |
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select* from emp where age between 20 and 40 ;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> select* from emp where age between 30 nd 40 ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nd 40' at line 1
+mysql> select* from emp where age between 30 and 40 ;
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+--------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email               | gender | designation  |
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+--------------+
+|     8 | bhavya |  8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com | female | tech support |
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select* from emp where doj between '2017-01-01' and '2017-12-30' ;
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email               | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+-------------+
+|    10 | sarika |  9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com | female | tester      |
++-------+--------+----------+------------+------+------------+------------+--------+--------+---------------------+--------+-------------+
+1 row in set (0.12 sec)
+
+mysql> select* from emp where salary between 25000 and 30000;
++-------+-------+----------+------------+------+------------+------------+--------+--------+--------------------+--------+-------------+
+| empid | name  | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email              | gender | designation |
++-------+-------+----------+------------+------+------------+------------+--------+--------+--------------------+--------+-------------+
+|     9 | ritik |  7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com | male   | tester      |
++-------+-------+----------+------------+------+------------+------------+--------+--------+--------------------+--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select* from emp where salary not between 25000 and 30000;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+8 rows in set (0.00 sec)
+
+mysql>
+mysql>---===============================================================================================================================================================================================================================================================================================================
+mysql> insert into emp values(11,'priya',799877667,'1997-01-10',21,null,'a+',50,35000,'priaya@yahoo.com','female','hr');
+Query OK, 1 row affected (0.21 sec)
+
+mysql> select * from emp where doj is null;
++-------+-------+-----------+------------+------+------+------------+--------+--------+------------------+--------+-------------+
+| empid | name  | mobileno  | dob        | age  | doj  | bloodgroup | deptno | salary | email            | gender | designation |
++-------+-------+-----------+------------+------+------+------------+--------+--------+------------------+--------+-------------+
+|    11 | priya | 799877667 | 1997-01-10 |   21 | NULL | a+         |     50 |  35000 | priaya@yahoo.com | female | hr          |
++-------+-------+-----------+------------+------+------+------------+--------+--------+------------------+--------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select * from emp where doj is not null;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from emp where  name like 'a%';
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+|     7 | amrita |  9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager     |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+1 row in set (0.11 sec)
+
+mysql> select * from emp where  name like '_i%';
++-------+-------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+| empid | name  | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                 | gender | designation |
++-------+-------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+|     6 | sita  | 94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com | female | manager     |
+|     9 | ritik |  7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com    | male   | tester      |
++-------+-------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select name from emp where  name like '%ll%';
+Empty set (0.00 sec)
+
+mysql> select name from emp where  name like '%a%a%';
++--------+
+| name   |
++--------+
+| rajan  |
+| amrita |
+| bhavya |
+| sarika |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> select name from emp where  name like 's%p';
+Empty set (0.00 sec)
+
+mysql> select name from emp where  name like 's%e';
+Empty set (0.00 sec)
+
+mysql> select name from emp where  name like 's%a';
++--------+
+| name   |
++--------+
+| sita   |
+| sarika |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp where  name like 's%' or 'a%';
++-------+--------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                 | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+|     6 | sita   | 94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com | female | manager     |
+|    10 | sarika |  9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com   | female | tester      |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+2 rows in set, 1 warning (0.05 sec)
+
+mysql> select * from emp where  name like in('s%', 'a%');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'in('s%', 'a%')' at line 1
+mysql> select * from emp where  name like 's%' or 'a%';
++-------+--------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                 | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+|     6 | sita   | 94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com | female | manager     |
+|    10 | sarika |  9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com   | female | tester      |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-----------------------+--------+-------------+
+2 rows in set, 1 warning (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
+|    11 | priya  |  799877667 | 1997-01-10 |   21 | NULL       | a+         |     50 |  35000 | priaya@yahoo.com        | female | hr               |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from emp where  name like 's%' or name like 'a%';
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+| empid | name   | mobileno | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+|     6 | sita   | 94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager     |
+|     7 | amrita |  9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager     |
+|    10 | sarika |  9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester      |
++-------+--------+----------+------------+------+------------+------------+--------+--------+-------------------------+--------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select name, salary from emp where deptno in(10,20,30) and designation like 's%';
++------+--------+
+| name | salary |
++------+--------+
+| raj  |  20000 |
++------+--------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) from emp;
++-------------+
+| sum(salary) |
++-------------+
+|      354000 |
++-------------+
+1 row in set (0.15 sec)
+
+mysql> select max(salary) from emp;
++-------------+
+| max(salary) |
++-------------+
+|       70000 |
++-------------+
+1 row in set (0.11 sec)
+
+mysql> select min(salary) from emp;
++-------------+
+| min(salary) |
++-------------+
+|       10000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from emp;
++-------------+
+| avg(salary) |
++-------------+
+|  35400.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from emp;
++----------+
+| count(*) |
++----------+
+|       10 |
++----------+
+1 row in set (0.00 sec)
+
+mysql>
+
+=========================================================================================================================================================================
+=>WAQ TO DISPLAY 
+
+mysql> select *  from emp order by salary desc;
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+| empid | name   | mobileno   | dob        | age  | doj        | bloodgroup | deptno | salary | email                   | gender | designation      |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+|     6 | sita   |   94363472 | 1992-07-08 |   29 | 2019-07-02 | b-         |     40 |  70000 | sitaverma66@gmail.com   | female | manager          |
+|     7 | amrita |    9963472 | 1992-07-08 |   22 | 2019-07-02 | b-         |     50 |  70000 | amritaangel66@gmail.com | female | manager          |
+|     2 | raju   | 9918283463 | 1996-10-10 |   22 | 2016-04-04 | a+         |     10 |  50000 | rajusingh97@gmail.com   | male   | hr               |
+|    11 | priya  |  799877667 | 1997-01-10 |   21 | NULL       | a+         |     50 |  35000 | priaya@yahoo.com        | female | hr               |
+|    10 | sarika |    9239239 | 1995-04-28 |   28 | 2017-12-22 | b+         |     30 |  32000 | sarika999@gmail.com     | female | tester           |
+|     9 | ritik  |    7736342 | 1992-04-20 |   25 | 2018-08-22 | o+         |     40 |  28000 | ritik999@gmail.com      | male   | tester           |
+|     4 | rajesh |   74300125 | 1994-10-05 |   29 | 2018-04-04 | b-         |     20 |  22000 | rajeshverma97@gmail.com | male   | clerk            |
+|     1 | raj    |  983815625 | 1996-10-10 |   23 | 2016-04-04 | o+         |     10 |  20000 | rajsingh97@gmail.com    | female | sofware devloper |
+|     3 | rajan  |   74338125 | 1993-10-05 |   29 | 2016-04-04 | b+         |     10 |  17000 | rajansingh97@gmail.com  | male   | tester           |
+|     8 | bhavya |    8363472 | 1987-04-08 |   40 | 2019-07-02 | o+         |     50 |  10000 | bhavy1987@gmail.com     | female | tech support     |
++-------+--------+------------+------------+------+------------+------------+--------+--------+-------------------------+--------+------------------+
+10 rows in set (0.12 sec)

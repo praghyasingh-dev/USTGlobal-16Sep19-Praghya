@@ -1,0 +1,40 @@
+  class Operator2
+    {
+         public static void main(String[] args)
+        {
+
+             int a=10;
+             int b=20;
+             a= a+b;
+             System.out.println("a is "+a);
+             int p=20;
+             int q=30;
+             p+=q;
+             System.out.println("p is "+p);
+
+             p*=q;
+             System.out.println("p is"+p);
+
+             int r=10;
+             r++;
+             System.out.println("r is"+r);
+              ++r;
+              System.out.println("r is"+r);
+
+            
+
+             
+
+
+  
+
+
+
+ 
+
+
+
+
+
+        }
+     }
