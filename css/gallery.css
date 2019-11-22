@@ -1,0 +1,14 @@
+img{
+    background-color: rgb(243, 131, 237);
+    height: 300px;
+    width:210px;
+    border-radius: 30px;
+    padding: 20px;
+    border:1 px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0 0 25px rgb(77, 108, 175);
+    transition:all 3s;}
+img:hover{
+    transform: scale(1.1,1.1); /*for zooming*/
+}
