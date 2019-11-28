@@ -1,0 +1,29 @@
+package com.ustglobal.book;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.ustgloabl.book.di.Author;
+import com.ustgloabl.book.di.Book;
+import com.ustglobal.book.config.ConfigurationClass;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfigurationClass.class);
+           Book book = context.getBean(Book.class) ;
+         System.out.println(book.getAuthor()); 
+         System.out.println(book);
+           
+           
+           
+
+   		Author author = context.getBean(Author.class);
+   		System.out.println(author.getName());
+   		System.out.println("*************************");
+   		
+   		context.close();
+
+    }
+}

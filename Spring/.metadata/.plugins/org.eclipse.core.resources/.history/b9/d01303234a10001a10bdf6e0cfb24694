@@ -1,0 +1,9 @@
+package com.ustgloabl.book.di;
+
+public class Author {
+	
+	private name;
+	 
+	private penname;
+
+}

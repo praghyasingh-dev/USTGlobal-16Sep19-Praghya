@@ -1,0 +1,5 @@
+package com.ustglobal.book.config;
+
+public class ConfigurationClass {
+
+}

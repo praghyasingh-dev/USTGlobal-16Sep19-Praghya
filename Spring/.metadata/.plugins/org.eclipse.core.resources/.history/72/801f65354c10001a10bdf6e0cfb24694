@@ -1,0 +1,19 @@
+package com.ustglobal.book.config;
+
+import org.springframework.context.annotation.Bean;
+
+import com.ustgloabl.book.di.Book;
+import com.ustglobal.springcore.di.Hello;
+
+public class ConfigurationClass {
+	
+	
+	@Bean(name="book")  
+	//@Scope ("prototype")                                                //singleton-every time it will not create object
+	public Book getBook() {
+		Book book =new Book();
+		book.setMsg("i love python");
+		return  book;
+	}
+
+}
