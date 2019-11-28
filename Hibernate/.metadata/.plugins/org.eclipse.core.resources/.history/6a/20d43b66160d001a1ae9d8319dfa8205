@@ -1,0 +1,23 @@
+package com.ustglobal.curdoperationwithhibernate.manytomany;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import lombok.Data;
+@Data
+public class Course {
+
+	
+	@Entity
+	@Table(name="course")
+	public class Student {
+		@Id
+		@Column
+		private int cid;
+		@Column
+		private String cname;
+
+	}
+
+
+}

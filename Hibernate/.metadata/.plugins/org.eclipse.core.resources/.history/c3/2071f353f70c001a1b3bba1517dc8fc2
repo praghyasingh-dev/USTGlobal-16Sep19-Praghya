@@ -1,0 +1,5 @@
+package com.ustglobal.curdoperationwithhibernate.manytoone;
+
+public class PencilBox {
+
+}

@@ -1,0 +1,27 @@
+package com.ustglobal.curdoperationwithhibernate;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.ustglobal.curdoperationpractise.dto.Employee;
+
+public class GetReferrence {
+	public static void main(String[] args) {
+		EntityManager entityManager = null;
+		EntityManagerFactory entityManagerFactory =null;
+		
+	    entityManagerFactory = Persistence.createEntityManagerFactory("TestPersistence");
+		entityManager = entityManagerFactory.createEntityManager();
+		
+		
+		Product product = entityManager.getReference(Product.class,101);
+		System.out.println("id:"+ product.getEid());
+		System.out.println("name:"+product.getEname());
+		System.out.println("salary:"+product.getSalary());
+		
+		entityManager.close();
+	}
+
+}

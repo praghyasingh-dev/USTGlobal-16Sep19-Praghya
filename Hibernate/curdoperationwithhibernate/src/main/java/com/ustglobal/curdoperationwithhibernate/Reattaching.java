@@ -1,0 +1,39 @@
+package com.ustglobal.curdoperationwithhibernate;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.ustglobal.curdoperationwithhibernate.dto.Product;
+
+public class Reattaching {
+	public static void main(String[] args) {
+		EntityManagerFactory entityManagerFactory = null;
+		EntityManager entityManager =null;
+		EntityTransaction entityTransaction =null;
+		try {
+			entityManagerFactory = Persistence.createEntityManagerFactory("TestPersistence");
+			entityManager =entityManagerFactory.createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			Product product = entityManager.find(Product.class, 101);
+			System.out.println(entityManager.contains(product));      // contains check object is present or not in DB -return true
+			entityManager.detach(product);
+			//entityManager.clear();                                      //it'll detach all object// disconnect the object
+			Product product2=  entityManager.merge(product);
+			
+			System.out.println(entityManager.contains(product));      //false again we are checking -not updated in DB
+			product2.setPname("laptop");
+			System.out.println("updated....");
+			entityTransaction.commit();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			entityTransaction.rollback();
+		}
+
+	}
+
+
+}

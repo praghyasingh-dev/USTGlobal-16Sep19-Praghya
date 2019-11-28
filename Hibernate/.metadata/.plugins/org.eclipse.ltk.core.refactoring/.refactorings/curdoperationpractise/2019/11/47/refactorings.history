@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;GetReferrence.java&apos; to &apos;curdoperationwithhibernate/src/main/java/com.ustglobal.curdoperationwithhibernate&apos;&#x0D;&#x0A;- Original project: &apos;curdoperationpractise&apos;&#x0D;&#x0A;- Destination element: &apos;curdoperationwithhibernate/src/main/java/com.ustglobal.curdoperationwithhibernate&apos;&#x0D;&#x0A;- Original element: &apos;com.ustglobal.curdoperationpractise.GetReferrence.java&apos;" description="Copy compilation unit" destination="=curdoperationwithhibernate/src\/main\/java&lt;com.ustglobal.curdoperationwithhibernate" element1="/src\/main\/java&lt;com.ustglobal.curdoperationpractise{GetReferrence.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1574312588113" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,30 @@
+package com.ustglobal.curdoperationwithhibernate.onetoone;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class VoterCard {
+	@Id
+	@Column
+	private int vid;
+	@Column
+	private String vname;
+	@Column
+	public int getVid() {
+		return vid;
+	}
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
+	public String getVname() {
+		return vname;
+	}
+	public void setVname(String vname) {
+		this.vname = vname;
+	}
+
+}

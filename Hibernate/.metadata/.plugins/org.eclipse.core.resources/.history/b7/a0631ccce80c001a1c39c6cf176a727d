@@ -1,0 +1,13 @@
+package com.ustglobal.curdoperationwithhibernate.onetoone;
+
+import lombok.Data;
+
+@Data
+public class Person {
+	
+	private int pid;
+	
+	private String name;
+	
+
+}

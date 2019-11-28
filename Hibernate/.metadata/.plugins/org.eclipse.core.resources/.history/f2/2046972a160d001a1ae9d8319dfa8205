@@ -1,0 +1,5 @@
+package com.ustglobal.curdoperationwithhibernate.manytomany;
+
+public class Course {
+
+}

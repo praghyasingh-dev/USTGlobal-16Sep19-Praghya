@@ -1,0 +1,27 @@
+package com.ustglobal.curdoperationwithhibernate;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import com.ustglobal.curdoperationwithhibernate.dto.Product;
+
+public class GetReferrence {
+	public static void main(String[] args) {
+		EntityManager entityManager = null;
+		EntityManagerFactory entityManagerFactory =null;
+		
+	    entityManagerFactory = Persistence.createEntityManagerFactory("TestPersistence");
+		entityManager = entityManagerFactory.createEntityManager();
+		
+		
+		Product product = entityManager.getReference(Product.class,101);  //alone it'll not print query
+		//Product product = entityManager.find(Product.class,101);      //alone it'll print query
+        System.out.println(product.getClass());        //proxy address output-------with get reference
+//  	System.out.println("id:"+ product.getPid());
+//		System.out.println("name:"+product.getPname());
+//		System.out.println("salary:"+product.getQuantity());
+//		
+		entityManager.close();
+	}
+
+}

@@ -1,0 +1,44 @@
+package com.ustglobal.curdoperationwithhibernate;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import com.ustglobal.curdoperationwithhibernate.onetoone.Person;
+import com.ustglobal.curdoperationwithhibernate.onetoone.VoterCard;
+
+public class TestOneToOne {
+	public static void main(String[] args) {
+
+		VoterCard	vc = new VoterCard();
+		vc.setVid(10);
+		vc.setVname("ram");
+		
+
+		Person p = new Person();
+		p.setPid(1);
+		p.setName("ram");
+		p.setVoterCard(vc);
+
+
+		EntityManager entityManager = null;
+		EntityTransaction entityTransaction=null;
+		try {
+			EntityManagerFactory entityManagerFactory  = Persistence.createEntityManagerFactory("TestPersistence");
+			entityManager = entityManagerFactory.createEntityManager();
+			entityTransaction = entityManager.getTransaction();
+			entityTransaction.begin();
+			
+			//entityManager.persist(p);
+			System.out.println("Record Saved");
+			entityTransaction.commit();
+			entityManager.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			entityTransaction.rollback();
+
+		}
+	}
+
+}
