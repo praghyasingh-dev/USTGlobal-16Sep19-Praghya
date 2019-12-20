@@ -1,0 +1,50 @@
+package com.ustglobal.lms.dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name = "librarian")
+
+public class LibrarianBean {
+	public int getLid() {
+		return lid;
+	}
+	public void setLid(int lid) {
+		this.lid = lid;
+	}
+	public String getLname() {
+		return lname;
+	}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	public String getLpassword() {
+		return lpassword;
+	}
+	public void setLpassword(String lpassword) {
+		this.lpassword = lpassword;
+	}
+	public String getLemail() {
+		return lemail;
+	}
+	public void setLemail(String lemail) {
+		this.lemail = lemail;
+	}
+	@Id
+	@Column
+	@GeneratedValue
+	private int lid;
+	@Column
+	private String lname;
+	@Column
+	private String lpassword;
+	@Column
+	private String lemail;
+	
+}
